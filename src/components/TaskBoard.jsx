@@ -196,11 +196,19 @@ export default function TaskBoard() {
 
   return (
     <div className="container">
-      <div className="d-flex justify-content-between align-items-center">
-        <h1 className="text-center my-4">Task Board</h1>
-
-        {!loading &&
-          tasks.filter(task => task.status !== "archived").length > 0 && (
+      {/* נעשה שורה חדשה עבור הכותרת וה-Controls */}
+      <div className="row align-items-center mb-3">
+        {/* במסכים קטנים (col-12) הכותרת תופסת שורה משל עצמה.
+            במסכים בינוניים ומעלה (col-md-auto) הכותרת תתאים עצמה לתוכן. */}
+        <div className="col-12 col-md-auto text-center text-md-center">
+          <h1 className="my-4">Task Board</h1>
+        </div>
+  
+        {/* במסכים קטנים (col-12) ה-Controls יורדים לשורה הבאה.
+            במסכים בינוניים ומעלה (col-md-auto) הם תופסים רק את הגודל שהם צריכים.
+            בנוסף, ms-md-auto ידחוף אותם לקצה ימין/שמאל בהתאם ל-RTL/LTR. */}
+        <div className="col-12 col-md-auto ms-md-auto">
+          {!loading && tasks.filter(task => task.status !== "archived").length > 0 && (
             <TaskControls
               searchQuery={searchQuery}
               setSearchQuery={setSearchQuery}
@@ -210,10 +218,11 @@ export default function TaskBoard() {
               setFilterStatus={setFilterStatus}
             />
           )}
+        </div>
       </div>
-
-      {loading && <p className="alert alert-info">Loading...</p>}
-
+  
+      {loading && <p className="alert">Loading...</p>}
+  
       {!loading && filteredAndSearchedTasks.length === 0 && (
         <div className="alert" role="alert">
           {filterStatus === "done" || filterStatus === "archived" ? (
@@ -226,7 +235,7 @@ export default function TaskBoard() {
           )}
         </div>
       )}
-
+  
       <div className="row g-3">
         {filteredAndSearchedTasks.map(task => (
           <div key={task.id} className="col-md-4 col-lg-4">
@@ -239,7 +248,8 @@ export default function TaskBoard() {
           </div>
         ))}
       </div>
-
+  
+      {/* התראה/Alert */}
       {showAlert && (
         <div
           className={`
@@ -282,4 +292,5 @@ export default function TaskBoard() {
       )}
     </div>
   );
+  
 }

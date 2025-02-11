@@ -22,7 +22,7 @@ const isUserExists = async (userId) => {
 
     return userSnapshot.exists();
   } catch (error) {
-    console.error(`❗ Error checking user existence for ID ${userId}:`, error);
+    console.error(`Error checking user existence for ID ${userId}:`, error);
     return false;
   }
 };
@@ -40,7 +40,7 @@ export async function addTask({ title, assignedTo, description, dueDate, priorit
       ? new Date(createdDate)
       : serverTimestamp();
 
-    console.log("📋 Adding task with data:", {
+    console.log("Adding task with data:", {
       title,
       assignedTo,
       description,
@@ -63,9 +63,9 @@ export async function addTask({ title, assignedTo, description, dueDate, priorit
       createdAt: serverTimestamp()
     });
 
-    console.log("✅ Task added successfully with ID:", docRef.id);
+    console.log("Task added successfully with ID:", docRef.id);
   } catch (error) {
-    console.error("❗ Error adding task:", error);
+    console.error("Error adding task:", error);
   }
 }
 
@@ -95,7 +95,7 @@ export const getAllTasks = async () => {
 
     return allTasks;
   } catch (error) {
-    console.error("❗ Error fetching tasks:", error);
+    console.error("Error fetching tasks:", error);
     return [];
   }
 };
@@ -105,7 +105,7 @@ export const updateTask = async (taskId, updatedData) => {
     const userId = await getCurrentUserId();
 
     if (!(await isUserExists(userId))) {
-      console.error("❗ User does not exist in the 'users' collection.");
+      console.error("User does not exist in the 'users' collection.");
       return;
     }
 

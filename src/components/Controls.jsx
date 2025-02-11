@@ -20,7 +20,7 @@ export default function TaskControls({
       <input
         type="text"
         className="d-inline-flex align-items-center border border-secondary rounded p-2 bg-transparent text-secondary"
-        style={{ width: "400px" }}
+        style={{ width: "30%" }}
         placeholder="Search..."
         value={searchQuery}
         onChange={handleSearch}

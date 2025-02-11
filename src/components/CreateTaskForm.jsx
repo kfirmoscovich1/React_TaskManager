@@ -41,90 +41,92 @@ export default function CreateTaskForm() {
       console.error("Error adding task:", error);
     }
   };
-  
-  
 
   return (
-    <div className="container my-4" style={{ maxWidth: "30%" }}>
-      <h2 className="text-center mb-4">Create New Task</h2>
-      <form onSubmit={handleSubmit} className="p-4 border rounded">
-        <div className="mb-3">
-          <label className="form-label">Title</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Enter task title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-        </div>
+    <div className="container my-4">
+      <div className="row justify-content-center">
+        <div className="col-12 col-md-6 offset-md-3">
+          <h2 className="text-center mb-4">Create New Task</h2>
+          <form onSubmit={handleSubmit} className="p-4 border rounded">
+            <div className="mb-3">
+              <label className="form-label">Title</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter task title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                required
+              />
+            </div>
 
-        <div className="mb-3">
-          <label className="form-label">Assigned to</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Enter employee name"
-            value={assignedTo}
-            onChange={(e) => setAssignedTo(e.target.value)}
-            required
-          />
-        </div>
+            <div className="mb-3">
+              <label className="form-label">Assigned to</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter employee name"
+                value={assignedTo}
+                onChange={(e) => setAssignedTo(e.target.value)}
+                required
+              />
+            </div>
 
-        <div className="mb-3">
-          <label className="form-label">Description</label>
-          <textarea
-            className="form-control"
-            placeholder="Describe the task"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          ></textarea>
-        </div>
+            <div className="mb-3">
+              <label className="form-label">Description</label>
+              <textarea
+                className="form-control"
+                placeholder="Describe the task"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                required
+              ></textarea>
+            </div>
 
-        <div className="mb-3">
-          <label className="form-label">Priority</label>
-          <div className="d-flex justify-content-between">
-            <button
-              type="button"
-              className={`btn ${priority === "High" ? "btn-danger" : "btn-outline-danger"} flex-fill mx-1`}
-              onClick={() => setPriority("High")}
-            >
-              High
+            <div className="mb-3">
+              <label className="form-label">Priority</label>
+              <div className="d-flex justify-content-between">
+                <button
+                  type="button"
+                  className={`btn ${priority === "High" ? "btn-danger" : "btn-outline-danger"} flex-fill mx-1`}
+                  onClick={() => setPriority("High")}
+                >
+                  High
+                </button>
+                <button
+                  type="button"
+                  className={`btn ${priority === "Medium" ? "btn-warning" : "btn-outline-warning"} flex-fill mx-1`}
+                  onClick={() => setPriority("Medium")}
+                >
+                  Medium
+                </button>
+                <button
+                  type="button"
+                  className={`btn ${priority === "Low" ? "btn-success" : "btn-outline-success"} flex-fill mx-1`}
+                  onClick={() => setPriority("Low")}
+                >
+                  Low
+                </button>
+              </div>
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label">Due Date</label>
+              <input
+                type="date"
+                className="form-control"
+                value={dueDate}
+                onChange={(e) => setDueDate(e.target.value)}
+                required
+              />
+            </div>
+
+            <button type="submit" className="btn btn-success w-100">
+              Create Task
             </button>
-            <button
-              type="button"
-              className={`btn ${priority === "Medium" ? "btn-warning" : "btn-outline-warning"} flex-fill mx-1`}
-              onClick={() => setPriority("Medium")}
-            >
-              Medium
-            </button>
-            <button
-              type="button"
-              className={`btn ${priority === "Low" ? "btn-success" : "btn-outline-success"} flex-fill mx-1`}
-              onClick={() => setPriority("Low")}
-            >
-              Low
-            </button>
-          </div>
+          </form>
         </div>
-
-        <div className="mb-3">
-          <label className="form-label">Due Date</label>
-          <input
-            type="date"
-            className="form-control"
-            value={dueDate}
-            onChange={(e) => setDueDate(e.target.value)}
-            required
-          />
-        </div>
-
-        <button type="submit" className="btn btn-success w-100">
-          Create Task
-        </button>
-      </form>
+      </div>
     </div>
   );
 }
