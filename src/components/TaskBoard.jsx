@@ -196,17 +196,11 @@ export default function TaskBoard() {
 
   return (
     <div className="container">
-      {/* נעשה שורה חדשה עבור הכותרת וה-Controls */}
       <div className="row align-items-center mb-3">
-        {/* במסכים קטנים (col-12) הכותרת תופסת שורה משל עצמה.
-            במסכים בינוניים ומעלה (col-md-auto) הכותרת תתאים עצמה לתוכן. */}
         <div className="col-12 col-md-auto text-center text-md-center">
           <h1 className="my-4">Task Board</h1>
         </div>
   
-        {/* במסכים קטנים (col-12) ה-Controls יורדים לשורה הבאה.
-            במסכים בינוניים ומעלה (col-md-auto) הם תופסים רק את הגודל שהם צריכים.
-            בנוסף, ms-md-auto ידחוף אותם לקצה ימין/שמאל בהתאם ל-RTL/LTR. */}
         <div className="col-12 col-md-auto ms-md-auto">
           {!loading && tasks.filter(task => task.status !== "archived").length > 0 && (
             <TaskControls
