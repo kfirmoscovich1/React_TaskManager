@@ -1,25 +1,35 @@
 .controls {
-    width: 90%;         
-    max-width: 100%;        
-    margin: 0 auto;          
-    padding: 1em;             
-    box-sizing: border-box;   
-    overflow-x: auto;          
-    white-space: nowrap;       
-    gap: 1em;                  
+    width: 100%;                 /* תופס את כל רוחב המסך */
+    max-width: 100vw;            /* מונע חריגה מרוחב המסך */
+    margin: 0 auto;              /* ממרכז את האלמנט */
+    padding: 0.5em;              /* ריווח פנימי */
+    box-sizing: border-box;      /* מוודא שה-padding נכלל בתוך הרוחב */
+    overflow-x: auto;            /* מאפשר גלילה אופקית במקרה של חריגה */
+    display: flex;
+    flex-wrap: wrap;             /* מונע חריגה ע"י שבירת שורה אם צריך */
+    justify-content: center;     /* ממרכז את האלמנטים */
+    gap: 0.5em;                  /* רווח בין האלמנטים */
+    white-space: nowrap;         /* מונע ירידת האלמנטים לשורות נוספות בגלילה */
   }
   
-
-  @media (max-width: 450px) {
+  /* התאמה למסכים קטנים */
+  @media (max-width: 500px) {
     .controls {
-      flex-direction: column; 
-      align-items: center;  
-      gap: 0.5em;              
+      flex-direction: column;    /* מסדר את האלמנטים אחד מתחת לשני במסכים קטנים */
+      align-items: center;       /* ממרכז את האלמנטים במסך קטן */
+      padding: 1em;              /* ריווח פנימי נוח יותר */
     }
   
+    .controls input,
     .controls .dropdown-toggle {
-      width: 100%;             
-      text-align: center;       
+      width: 90%;                /* הופך את שדה החיפוש וכפתורי הדרופ-דאון לרוחב מלא כמעט */
+      max-width: 100%;           /* מונע חריגה מהמסך */
+      text-align: center;        /* ממרכז את הטקסט */
+    }
+  
+    .controls div {
+      width: 90%;                /* הופך גם את האלמנט של High, Medium, Low לרוחב מלא */
+      text-align: center;
     }
   }
   
