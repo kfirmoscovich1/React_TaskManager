@@ -4,9 +4,8 @@ import { getAllTasks as getTasks, deleteTask, updateTask } from "../service/conn
 import TaskItem from "./TaskItem";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TaskControls from "./Controls";
-import { getCurrentUserId } from '../service/auth';
-
-import undoImg from "../images/undo.png";
+import { getCurrentUserId } from "../service/auth";
+import undoImg from "../images/undo.png"; 
 
 export default function TaskBoard() {
   const [tasks, setTasks] = useState([]);
@@ -62,7 +61,6 @@ export default function TaskBoard() {
         console.error("Error fetching user ID:", error);
       }
     };
-
     fetchUserIDAndTasks();
   }, []);
 
@@ -99,7 +97,7 @@ export default function TaskBoard() {
   const handleDeleteTask = async (taskId) => {
     try {
       await deleteTask(taskId);
-      setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+      setTasks(prevTasks => prevTasks.filter(task => task.id !== taskId));
     } catch (error) {
       console.error("Error deleting task:", error);
     }
@@ -107,12 +105,12 @@ export default function TaskBoard() {
 
   const handleMarkAsDone = async (taskId) => {
     try {
-      const taskToMark = tasks.find((task) => task.id === taskId);
+      const taskToMark = tasks.find(task => task.id === taskId);
       if (!taskToMark || taskToMark.userId !== userID) return;
 
       await updateTask(taskId, { status: "Done" });
-      setTasks((prevTasks) =>
-        prevTasks.map((task) =>
+      setTasks(prevTasks =>
+        prevTasks.map(task =>
           task.id === taskId ? { ...task, status: "Done" } : task
         )
       );
@@ -131,14 +129,14 @@ export default function TaskBoard() {
 
   const handleArchiveTask = async (taskId) => {
     try {
-      const taskToArchive = tasks.find((task) => task.id === taskId);
+      const taskToArchive = tasks.find(task => task.id === taskId);
       if (!taskToArchive || taskToArchive.userId !== userID) return;
 
       const oldStatus = taskToArchive.status;
 
       await updateTask(taskId, { status: "archived" });
-      setTasks((prevTasks) =>
-        prevTasks.map((task) =>
+      setTasks(prevTasks =>
+        prevTasks.map(task =>
           task.id === taskId ? { ...task, status: "archived" } : task
         )
       );
@@ -148,8 +146,8 @@ export default function TaskBoard() {
         true,
         async () => {
           await updateTask(taskId, { status: oldStatus });
-          setTasks((prevTasks) =>
-            prevTasks.map((task) =>
+          setTasks(prevTasks =>
+            prevTasks.map(task =>
               task.id === taskId ? { ...task, status: oldStatus } : task
             )
           );
@@ -162,12 +160,13 @@ export default function TaskBoard() {
     }
   };
 
-  const filteredTasks = tasks.filter((task) => {
+  const filteredTasks = tasks.filter(task => {
     if (filterStatus === "open")
       return task.status !== "Done" && task.status !== "archived";
     if (filterStatus === "done")
       return task.status === "Done" && task.status !== "archived";
-    if (filterStatus === "archived") return task.status === "archived";
+    if (filterStatus === "archived")
+      return task.status === "archived";
     return task.status !== "archived";
   });
 
@@ -183,16 +182,14 @@ export default function TaskBoard() {
 
     if (sortType === "priority") {
       const priorityOrder = { High: 1, Medium: 2, Low: 3 };
-      return (
-        (priorityOrder[a.priority] || 4) - (priorityOrder[b.priority] || 4)
-      );
+      return (priorityOrder[a.priority] || 4) - (priorityOrder[b.priority] || 4);
     }
 
-    return 0;
+    return 0; 
   });
 
   const filteredAndSearchedTasks = sortedTasks.filter(
-    (task) =>
+    task =>
       task.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       task.description.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -203,7 +200,7 @@ export default function TaskBoard() {
         <h1 className="text-center my-4">Task Board</h1>
 
         {!loading &&
-          tasks.filter((task) => task.status !== "archived").length > 0 && (
+          tasks.filter(task => task.status !== "archived").length > 0 && (
             <TaskControls
               searchQuery={searchQuery}
               setSearchQuery={setSearchQuery}
@@ -215,23 +212,23 @@ export default function TaskBoard() {
           )}
       </div>
 
-      {loading && <p className="alert">Loading...</p>}
+      {loading && <p className="alert alert-info">Loading...</p>}
 
       {!loading && filteredAndSearchedTasks.length === 0 && (
-  <div className="alert" role="alert">
-    {filterStatus === 'done' || filterStatus === 'archived' ? (
-      <strong>No tasks found.</strong>
-    ) : (
-      <>
-        <strong>No tasks found.</strong> Click <em className="text-primary">Create Task</em> above to get started!
-      </>
-    )}
-  </div>
-)}
-
+        <div className="alert" role="alert">
+          {filterStatus === "done" || filterStatus === "archived" ? (
+            <strong>No tasks found.</strong>
+          ) : (
+            <>
+              <strong>No tasks found.</strong> Click{" "}
+              <em className="text-primary">Create Task</em> above to get started!
+            </>
+          )}
+        </div>
+      )}
 
       <div className="row g-3">
-        {filteredAndSearchedTasks.map((task) => (
+        {filteredAndSearchedTasks.map(task => (
           <div key={task.id} className="col-md-4 col-lg-4">
             <TaskItem
               task={task}
@@ -245,10 +242,17 @@ export default function TaskBoard() {
 
       {showAlert && (
         <div
-          className={`alert ${alertClass} position-fixed bottom-0 start-50 translate-middle-x transition-opacity ${
-            alertVisible ? "fade-in" : "fade-out"
-          }`}
-          style={{ zIndex: 1050, width: "80%", textAlign: "center" }}
+          className={`
+            alert 
+            ${alertClass} 
+            position-fixed 
+            bottom-0 
+            start-50 
+            translate-middle-x 
+            ${alertVisible ? "fade-in" : "fade-out"} 
+            alert-overlay
+          `}
+          style={{ width: "80%", textAlign: "center" }}
         >
           <div className="position-relative d-flex justify-content-center align-items-center">
             {showUndoButton && (
@@ -261,10 +265,12 @@ export default function TaskBoard() {
                   position: "absolute",
                   top: "50%",
                   right: "10px",
-                  transform: "translateY(-50%)",
+                  transform: "translateY(-50%)"
                 }}
                 onClick={() => {
-                  if (undoCallback) undoCallback();
+                  if (undoCallback) {
+                    undoCallback();
+                  }
                   setAlertVisible(false);
                   setShowAlert(false);
                 }}

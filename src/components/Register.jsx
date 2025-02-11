@@ -5,7 +5,7 @@ import { doc, setDoc } from 'firebase/firestore';
 import { firestore } from '../service/firebase';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Register() {
+export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rePassword, setRePassword] = useState('');
@@ -128,4 +128,4 @@ function Register() {
   );
 }
 
-export default Register;
+
