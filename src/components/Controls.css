@@ -24,6 +24,7 @@
     .controls .dropdown-toggle {
       width: 100%;              /* הופך את כפתורי הדרופ-דאון לרוחב מלא */
       text-align: center;       /* ממרכז את הטקסט בכפתור */
+      overflow-x: scroll;
     }
   }
   
