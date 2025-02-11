@@ -1,6 +1,5 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
-import "./Controls.css";
 import imgFilter from "../images/filter.png";
 import imgSort from "../images/sort.png";
 
@@ -17,7 +16,7 @@ export default function TaskControls({
   };
 
   return (
-    <div className="controls d-flex justify-content-between align-items-center gap-2 flex-wrap">
+    <div className="controls d-flex justify-content-between align-items-center gap-1 flex-grow-1 white-space-nowrap overflow-hidden">
       <input
         type="text"
         className="d-inline-flex align-items-center border border-secondary rounded p-2 bg-transparent text-secondary"
