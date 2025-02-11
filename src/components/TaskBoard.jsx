@@ -202,7 +202,7 @@ export default function TaskBoard() {
           <h1 className="my-4">Task Board</h1>
         </div>
   
-        <div className="col-12 col-xs-auto ms-md-auto text-md-center">
+        <div className="col-12 col-xs-auto ms-md-auto text-md-center" style={{maxWidth:'100vw'}}>
           {!loading && tasks.filter(task => task.status !== "archived").length > 0 && (
             <TaskControls
               searchQuery={searchQuery}
@@ -257,7 +257,7 @@ export default function TaskBoard() {
             ${alertVisible ? "fade-in" : "fade-out"} 
             alert-overlay
           `}
-          style={{ width: "80%", textAlign: "center" }}
+          style={{ width: "90%", textAlign: "center" }}
         >
           <div className="position-relative d-flex justify-content-center align-items-center">
             {showUndoButton && (
