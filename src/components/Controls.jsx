@@ -16,7 +16,7 @@ export default function TaskControls({
   };
 
   return (
-    <div className="d-flex justify-content-end align-items-center gap-2 col-12 col-xs-auto" style={{maxWidth:'90%'}}>
+    <div className="d-flex justify-content-end align-items-center gap-2 col-12 col-xs-auto">
       <input
         type="text"
         className="d-inline-flex align-items-center border border-secondary rounded p-2 bg-transparent text-secondary"
