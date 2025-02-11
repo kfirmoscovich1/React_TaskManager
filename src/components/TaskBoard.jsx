@@ -172,49 +172,61 @@ export default function TaskBoard() {
   });
 
   const sortedTasks = filteredTasks.sort((a, b) => {
-    if (a.status === "Done" || a.status === "archived") return 1;
-    if (b.status === "Done" || b.status === "archived") return -1;
-
+    if ((a.status === "Done" || a.status === "archived") && (b.status !== "Done" && b.status !== "archived")) {
+      return 1;
+    }
+    if ((b.status === "Done" || b.status === "archived") && (a.status !== "Done" && a.status !== "archived")) {
+      return -1;
+    }
+  
     if (sortType === "date") {
-      const dateA = a.dueDate ? new Date(a.dueDate) : new Date("9999-12-31");
-      const dateB = b.dueDate ? new Date(b.dueDate) : new Date("9999-12-31");
+      const formatDate = (dateStr) => {
+        if (!dateStr) return new Date("9999-12-31");
+        const parts = dateStr.split('/');
+        return parts.length === 3 ? new Date(`${parts[2]}-${parts[1]}-${parts[0]}`) : new Date(dateStr);
+      };
+  
+      const dateA = formatDate(a.dueDate);
+      const dateB = formatDate(b.dueDate);
       return dateA - dateB;
     }
-
+  
     if (sortType === "priority") {
       const priorityOrder = { High: 1, Medium: 2, Low: 3 };
       return (priorityOrder[a.priority] || 4) - (priorityOrder[b.priority] || 4);
     }
-
+  
     return 0; 
   });
-
+  
   const filteredAndSearchedTasks = sortedTasks.filter(
     task =>
       task.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       task.description.toLowerCase().includes(searchQuery.toLowerCase())
   );
+  
 
   return (
     <div className="container">
-      <div className="row align-items-center mb-3">
-        <div className="col-12 col-xs-auto col-md-auto text-center text-md-center">
-          <h1 className="my-4">Task Board</h1>
-        </div>
-  
-        <div className="col-12 col-xs-auto ms-md-auto text-md-center" style={{maxWidth:'100vw'}}>
-          {!loading && tasks.filter(task => task.status !== "archived").length > 0 && (
-            <TaskControls
-              searchQuery={searchQuery}
-              setSearchQuery={setSearchQuery}
-              sortType={sortType}
-              setSortType={setSortType}
-              filterStatus={filterStatus}
-              setFilterStatus={setFilterStatus}
-            />
-          )}
-        </div>
-      </div>
+      <div className="row align-items-center mb-3 d-flex justify-content-between flex-wrap">
+  <div className="col-12 col-md-auto text-center text-md-start">
+    <h1 className="my-4">Task Board</h1>
+  </div>
+
+  <div className="col-12 col-md-auto text-center text-md-end" style={{ maxWidth: '100%' }}>
+    {!loading && tasks.filter(task => task.status !== "archived").length > 0 && (
+      <TaskControls
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        sortType={sortType}
+        setSortType={setSortType}
+        filterStatus={filterStatus}
+        setFilterStatus={setFilterStatus}
+      />
+    )}
+  </div>
+</div>
+
   
       {loading && <p className="alert">Loading...</p>}
   

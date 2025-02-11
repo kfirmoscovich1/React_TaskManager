@@ -1,19 +1,16 @@
-
-.row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
- 
-  @media (max-width: 500px) {
+@media (max-width: 500px) {
     .row {
-      flex-direction: column;
-      align-items: center;
+      flex-direction: column;      /* מסדר אחד מתחת לשני במסכים קטנים */
+      align-items: center;         /* ממרכז את האלמנטים במסך קטן */
     }
   
     .row h1 {
-      margin-bottom: 10px;
+      margin-bottom: 10px;         /* רווח בין הכותרת ל-TaskControls */
+    }
+  
+    .col-md-auto {
+      width: 100%;                 /* הופך את העמודות לרוחב מלא במסכים קטנים */
+      text-align: center;          /* ממרכז את הטקסט והכפתורים */
     }
   }
   
