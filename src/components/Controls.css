@@ -1,30 +1,25 @@
 .controls {
-    width: 90%;                 /* מתאים את עצמו לרוחב המסך עם שוליים קטנים */
-    max-width: 100%;            /* מונע חריגה מהמסך */
-    margin: 0 auto;             /* ממרכז את האלמנט */
-    padding: 1em;               /* ריווח פנימי לנראות טובה יותר */
-    box-sizing: border-box;     /* מוודא שה-padding נכלל בתוך הרוחב */
-    overflow-x: auto;           /* מאפשר גלילה אופקית במקרה של חריגה */
-    white-space: nowrap;        /* מונע ירידת האלמנטים לשורה הבאה בגלילה */
-    gap: 1em;                   /* רווח בין האלמנטים */
+    width: 90%;         
+    max-width: 100%;        
+    margin: 0 auto;          
+    padding: 1em;             
+    box-sizing: border-box;   
+    overflow-x: auto;          
+    white-space: nowrap;       
+    gap: 1em;                  
   }
   
-  /* התאמה למסכים קטנים */
-  @media (max-width: 400px) {
+
+  @media (max-width: 450px) {
     .controls {
-      flex-direction: column;   /* מסדר את האלמנטים אחד מתחת לשני */
-      align-items: center;      /* ממרכז את האלמנטים במסכים קטנים */
-      gap: 0.5em;               /* רווחים קטנים יותר למסכים קטנים */
-    }
-  
-    .controls input {
-      width: 100%;              /* הופך את שדה החיפוש לרוחב מלא */
+      flex-direction: column; 
+      align-items: center;  
+      gap: 0.5em;              
     }
   
     .controls .dropdown-toggle {
-      width: 100%;              /* הופך את כפתורי הדרופ-דאון לרוחב מלא */
-      text-align: center;       /* ממרכז את הטקסט בכפתור */
-      overflow-x: scroll;
+      width: 100%;             
+      text-align: center;       
     }
   }
   
