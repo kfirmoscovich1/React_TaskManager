@@ -213,7 +213,7 @@ export default function TaskBoard() {
     <h1 className="my-4">Task Board</h1>
   </div>
 
-  <div className="col-12 col-md-auto text-center text-md-end" style={{ maxWidth: '100%' }}>
+  <div className="controls col-12 col-md-auto text-center text-md-end" style={{ maxWidth: '100%' }}>
     {!loading && tasks.filter(task => task.status !== "archived").length > 0 && (
       <TaskControls
         searchQuery={searchQuery}

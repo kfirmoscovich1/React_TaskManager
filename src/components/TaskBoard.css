@@ -5,12 +5,20 @@
     }
   
     .row h1 {
-      margin-bottom: 10px;         /* רווח בין הכותרת ל-TaskControls */
+      margin-bottom: 10vw;         /* רווח בין הכותרת ל-TaskControls */
     }
   
     .col-md-auto {
       width: 100%;                 /* הופך את העמודות לרוחב מלא במסכים קטנים */
       text-align: center;          /* ממרכז את הטקסט והכפתורים */
+    }
+  
+    .controls {
+      width: 90%;                  /* מתאים את עצמו לרוחב המסך עם שוליים קטנים */
+      max-width: 100%;             /* מונע חריגה מהמסך */
+      margin: 0 auto;              /* ממרכז את האלמנט */
+      padding: 1em;               /* ריווח פנימי לנראות טובה יותר */
+      box-sizing: border-box;      /* מוודא שה-padding נכלל בתוך הרוחב */
     }
   }
   
