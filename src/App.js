@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { auth } from './service/firebase';
 import TaskBoard from './components/TaskBoard';
 import CreateTaskForm from './components/CreateTaskForm';
@@ -8,7 +8,6 @@ import Login from './components/Login';
 import Register from './components/Register';
 import History from './components/History';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 function App() {
   const [user, setUser] = useState(null);
@@ -32,6 +31,7 @@ function App() {
         <Route path="/create" element={user ? <CreateTaskForm /> : <Navigate to="/login" />} />
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
+
       <History />
     </Router>
   );

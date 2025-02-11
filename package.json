@@ -2,7 +2,7 @@
   "name": "taskmanager",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kfirmoscovich1.github.io/React_TaskManager/",
+  "homepage": "https://kfirmoscovich1.github.io/React_TaskManager",
   "dependencies": {
     "@babel/core": "^7.26.8",
     "@babel/preset-env": "^7.26.8",
