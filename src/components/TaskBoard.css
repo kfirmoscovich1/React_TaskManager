@@ -1,16 +1,38 @@
 @media (max-width: 400px) {
     .row {
-      flex-direction: column;      /* מסדר אחד מתחת לשני במסכים קטנים */
-      align-items: center;         /* ממרכז את האלמנטים במסך קטן */
+      display: flex;
+      flex-direction: row;        /* שומר על האלמנטים בשורה אחת */
+      flex-wrap: nowrap;          /* מונע ירידת אלמנטים לשורה חדשה */
+      justify-content: space-between; /* מפזר את האלמנטים בצורה שווה */
+      align-items: center;        /* ממרכז את האלמנטים אנכית */
+      gap: 5px;                   /* רווח קטן בין האלמנטים */
+      overflow: scroll;           /* מונע גלישה של תוכן */
     }
   
     .row h1 {
-      margin-bottom: 10vw;         /* רווח בין הכותרת ל-TaskControls */
+      font-size: 5vw;             /* משנה את גודל הכותרת בהתאם לרוחב המסך */
+      margin-bottom: 5vw;         /* רווח קטן יותר בכדי לחסוך מקום */
+      white-space: nowrap;        /* מונע שבירת שורה בכותרת */
+      text-overflow: ellipsis;    /* מוסיף "..." אם הכותרת חורגת */
+      overflow: scroll;           /* מסתיר טקסט חורג */
     }
   
     .col-md-auto {
-      width: 100%;                 /* הופך את העמודות לרוחב מלא במסכים קטנים */
-      text-align: center;          /* ממרכז את הטקסט והכפתורים */
+      flex: 1 1 0;                /* מאפשר גמישות בכיווץ והרחבה */
+      min-width: 80px;            /* קובע רוחב מינימלי כדי שלא יקטן מדי */
+      max-width: 100%;            /* לא יחרוג מגבולות המסך */
+      text-align: center;         /* ממרכז טקסט וכפתורים */
+      padding: 5px;               /* רווח פנימי קטן */
+      box-sizing: border-box;     /* מבטיח שהרוחב כולל padding */
+    }
+  
+    button {
+      font-size: 3.5vw;           /* גודל טקסט דינמי בכפתורים */
+      padding: 8px 10px;          /* ריווח פנימי מתאים למכשירים קטנים */
+      flex-shrink: 1;             /* הכפתורים יכולים להתכווץ לפי הצורך */
+      text-overflow: ellipsis;    /* טקסט חורג יקבל "..." */
+      white-space: nowrap;        /* מונע שבירת שורה בכפתור */
+      overflow: scroll;           /* מסתיר טקסט חורג */
     }
   }
   
