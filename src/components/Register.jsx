@@ -92,27 +92,29 @@ export default function Register() {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="password" className="form-label">Password</label>
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-              value={password}
-              onChange={handleInputChange(setPassword)}
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="rePassword" className="form-label">Confirm Password</label>
-            <input
-              type="password"
-              className="form-control"
-              id="rePassword"
-              value={rePassword}
-              onChange={handleInputChange(setRePassword)}
-              required
-            />
-          </div>
+  <label className="form-label">Password</label>
+  <input
+    type="text"           // שימו לב שהשתנַּה מ-"password" ל-"text"
+    className="form-control"
+    id="password"
+    value={password}
+    onChange={handleInputChange(setPassword)}
+    required
+  />
+</div>
+
+<div className="mb-3">
+  <label className="form-label">Confirm Password</label>
+  <input
+    type="password"       // נשאר "password"
+    className="form-control"
+    id="rePassword"
+    value={rePassword}
+    onChange={handleInputChange(setRePassword)}
+    required
+  />
+</div>
+
           {error && <div className="alert alert-danger">{error}</div>}
           <button type="submit" className="btn btn-primary w-100" disabled={loading}>
             {loading ? 'Registering...' : 'Register'}
