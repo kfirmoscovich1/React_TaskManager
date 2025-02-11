@@ -10,7 +10,7 @@
   }
   
   /* התאמה למסכים קטנים */
-  @media (max-width: 500px) {
+  @media (max-width: 450px) {
     .controls {
       flex-direction: column;   /* מסדר את האלמנטים אחד מתחת לשני */
       align-items: center;      /* ממרכז את האלמנטים במסכים קטנים */
