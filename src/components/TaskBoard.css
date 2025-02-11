@@ -1,38 +1,38 @@
 @media (max-width: 400px) {
     .row {
       display: flex;
-      flex-direction: row;        /* שומר על האלמנטים בשורה אחת */
-      flex-wrap: nowrap;          /* מונע ירידת אלמנטים לשורה חדשה */
-      justify-content: space-between; /* מפזר את האלמנטים בצורה שווה */
-      align-items: center;        /* ממרכז את האלמנטים אנכית */
-      gap: 5px;                   /* רווח קטן בין האלמנטים */
-      overflow: scroll;           /* מונע גלישה של תוכן */
+      flex-direction: row;       
+      flex-wrap: nowrap;          
+      justify-content: space-between; 
+      align-items: center;        
+      gap: 5px;                   
+      overflow: scroll;           
     }
   
     .row h1 {
-      font-size: 5vw;             /* משנה את גודל הכותרת בהתאם לרוחב המסך */
-      margin-bottom: 5vw;         /* רווח קטן יותר בכדי לחסוך מקום */
-      white-space: nowrap;        /* מונע שבירת שורה בכותרת */
-      text-overflow: ellipsis;    /* מוסיף "..." אם הכותרת חורגת */
-      overflow: scroll;           /* מסתיר טקסט חורג */
+      font-size: 5vw;            
+      margin-bottom: 5vw;         
+      white-space: nowrap;        
+      text-overflow: ellipsis;   
+      overflow: scroll;           
     }
   
     .col-md-auto {
-      flex: 1 1 0;                /* מאפשר גמישות בכיווץ והרחבה */
-      min-width: 80px;            /* קובע רוחב מינימלי כדי שלא יקטן מדי */
-      max-width: 100%;            /* לא יחרוג מגבולות המסך */
-      text-align: center;         /* ממרכז טקסט וכפתורים */
-      padding: 5px;               /* רווח פנימי קטן */
-      box-sizing: border-box;     /* מבטיח שהרוחב כולל padding */
+      flex: 1 1 0;               
+      min-width: 80px;           
+      max-width: 100%;            
+      text-align: center;        
+      padding: 5px;              
+      box-sizing: border-box;     
     }
   
     button {
-      font-size: 3.5vw;           /* גודל טקסט דינמי בכפתורים */
-      padding: 8px 10px;          /* ריווח פנימי מתאים למכשירים קטנים */
-      flex-shrink: 1;             /* הכפתורים יכולים להתכווץ לפי הצורך */
-      text-overflow: ellipsis;    /* טקסט חורג יקבל "..." */
-      white-space: nowrap;        /* מונע שבירת שורה בכפתור */
-      overflow: scroll;           /* מסתיר טקסט חורג */
+      font-size: 3.5vw;       
+      padding: 8px 10px;          
+      flex-shrink: 1;          
+      text-overflow: ellipsis;    
+      white-space: nowrap;        
+      overflow: scroll;           
     }
   }
   
