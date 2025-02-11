@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Login from './components/Login';
 import Register from './components/Register';
 import History from './components/History';
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
