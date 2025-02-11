@@ -1,4 +1,4 @@
-@media (max-width: 500px) {
+@media (max-width: 400px) {
     .row {
       flex-direction: column;      /* מסדר אחד מתחת לשני במסכים קטנים */
       align-items: center;         /* ממרכז את האלמנטים במסך קטן */
