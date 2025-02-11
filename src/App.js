@@ -20,6 +20,7 @@ function App() {
   }, []);
 
   return (
+    <div className='container'>
     <Router>
       {user && <Header />}
 
@@ -34,6 +35,7 @@ function App() {
 
       <History />
     </Router>
+    </div>
   );
 }
 
