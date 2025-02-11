@@ -195,7 +195,7 @@ export default function TaskBoard() {
   );
 
   return (
-    <div className="container">
+    <div className="container col-12 col-xs-auto">
       <div className="row align-items-center mb-3">
         <div className="col-12 col-xs-auto text-center text-md-center">
           <h1 className="my-4">Task Board</h1>
