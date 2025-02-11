@@ -198,11 +198,11 @@ export default function TaskBoard() {
   return (
     <div className="container">
       <div className="row align-items-center mb-3">
-        <div className="col-12 col-md-auto text-center text-md-center">
+        <div className="col-12 col-xs-auto col-md-auto text-center text-md-center">
           <h1 className="my-4">Task Board</h1>
         </div>
   
-        <div className="col-12 col-md-auto ms-md-auto text-md-center">
+        <div className="col-12 col-xs-auto ms-md-auto text-md-center">
           {!loading && tasks.filter(task => task.status !== "archived").length > 0 && (
             <TaskControls
               searchQuery={searchQuery}
