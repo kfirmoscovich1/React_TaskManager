@@ -34,7 +34,7 @@ export default function TaskControls({
 
       <Dropdown>
         <Dropdown.Toggle id="sortDropdown" className="bg-transparent border-secondary p-2 text-secondary">
-          <img src={imgSort} alt="Sort" style={{ maxHeight: "20px", marginRight: "8px", verticalAlign: "middle" }} />
+          <img src={imgSort} alt="Sort" style={{ maxHeight: "3vh", marginRight: "1vw", verticalAlign: "middle" }} />
           {sortType === "date" ? "By Date" : "By Priority"}
         </Dropdown.Toggle>
 
@@ -46,7 +46,7 @@ export default function TaskControls({
 
       <Dropdown>
         <Dropdown.Toggle id="filterDropdown" className="bg-transparent border-secondary p-2 text-secondary">
-          <img src={imgFilter} alt="Filter" style={{ maxHeight: "20px", marginRight: "8px", verticalAlign: "middle" }} />
+          <img src={imgFilter} alt="Filter" style={{ maxHeight: "3vh", marginRight: "2vw", verticalAlign: "middle" }} />
           {filterStatus === "all"
             ? "All"
             : filterStatus === "open"
