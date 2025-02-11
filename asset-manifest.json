@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.c36d3c68.css",
-    "main.js": "/static/js/main.5f8bf7e8.js",
-    "static/js/488.fff696fb.chunk.js": "/static/js/488.fff696fb.chunk.js",
-    "static/media/google.svg": "/static/media/google.ea89a78ecdde8261ecf37b97889c7002.svg",
-    "index.html": "/index.html",
-    "main.c36d3c68.css.map": "/static/css/main.c36d3c68.css.map",
-    "main.5f8bf7e8.js.map": "/static/js/main.5f8bf7e8.js.map",
-    "488.fff696fb.chunk.js.map": "/static/js/488.fff696fb.chunk.js.map"
+    "main.css": "/React_TaskManager/static/css/main.c36d3c68.css",
+    "main.js": "/React_TaskManager/static/js/main.2e5e6152.js",
+    "static/js/488.fff696fb.chunk.js": "/React_TaskManager/static/js/488.fff696fb.chunk.js",
+    "static/media/google.svg": "/React_TaskManager/static/media/google.ea89a78ecdde8261ecf37b97889c7002.svg",
+    "index.html": "/React_TaskManager/index.html",
+    "main.c36d3c68.css.map": "/React_TaskManager/static/css/main.c36d3c68.css.map",
+    "main.2e5e6152.js.map": "/React_TaskManager/static/js/main.2e5e6152.js.map",
+    "488.fff696fb.chunk.js.map": "/React_TaskManager/static/js/488.fff696fb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c36d3c68.css",
-    "static/js/main.5f8bf7e8.js"
+    "static/js/main.2e5e6152.js"
   ]
 }
