@@ -48,7 +48,7 @@ export default function TaskBoard() {
         setShowAlert(false);
         setShowUndoButton(false);
         setUndoCallback(null);
-      }, 500);
+      }, 1000);
     }, duration);
   };
 
@@ -66,21 +66,31 @@ export default function TaskBoard() {
   }, []);
 
   useEffect(() => {
-    if (location.state?.newTaskAdded) {
-      navigate(location.pathname, { replace: true, state: {} });
+    console.log("Checking for newTaskAdded...", location.state);
 
-      const newTaskTitle = location.state?.newTaskTitle;
-      showAlertWithMessage(
-        newTaskTitle
-          ? `Success! A new task "${newTaskTitle}" has been created.`
-          : "Success! A new task has been created.",
-        false,
-        null,
-        "success",
-        5000
-      );
+    let newTaskTitle = location.state?.newTaskTitle || sessionStorage.getItem("newTaskTitle");
+
+    if (location.state?.newTaskAdded || newTaskTitle) {
+        console.log("New task detected, showing alert...", newTaskTitle);
+
+        showAlertWithMessage(
+            newTaskTitle
+                ? `Success! A new task "${newTaskTitle}" has been created.`
+                : "Success! A new task has been created.",
+            false,
+            null,
+            "success",
+            8000
+        );
+
+        sessionStorage.removeItem("newTaskTitle");
+
+        setTimeout(() => {
+            console.log("Navigating and resetting state...");
+            navigate(location.pathname, { replace: true, state: {} });
+        }, 500);
     }
-  }, [location, navigate]);
+}, [location, navigate]);
 
   const fetchTasks = async (userID) => {
     setLoading(true);

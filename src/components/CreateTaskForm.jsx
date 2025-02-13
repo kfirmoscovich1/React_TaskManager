@@ -15,39 +15,44 @@ export default function CreateTaskForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
+
     if (!title || !assignedTo || !description || !dueDate) {
-      console.error("Please fill in all required fields.");
-      return;
+        console.error("Please fill in all required fields.");
+        return;
     }
-  
+
     try {
-      const userId = await getCurrentUserId();
-  
-      const taskData = {
-        title,
-        assignedTo,
-        description,
-        dueDate: dueDate && !isNaN(new Date(dueDate).getTime()) ? new Date(dueDate) : null,
-        priority,
-        userId,
-      };
-  
-      await addTask(taskData);
-  
-      console.log("Task added successfully!");
-      navigate("/");
+        const userId = await getCurrentUserId();
+
+        const taskData = {
+            title,
+            assignedTo,
+            description,
+            dueDate: dueDate && !isNaN(new Date(dueDate).getTime()) ? new Date(dueDate) : null,
+            priority,
+            userId,
+        };
+
+        await addTask(taskData);
+
+        console.log("Task added successfully!");
+
+        sessionStorage.setItem("newTaskTitle", title);
+
+        navigate("/", { state: { newTaskAdded: true, newTaskTitle: title } });
+
     } catch (error) {
-      console.error("Error adding task:", error);
+        console.error("Error adding task:", error);
     }
-  };
+};
+
 
   return (
-    <div className="container my-4">
-      <div className="row justify-content-center">
-        <div className="col-12 col-md-6 offset-md-3">
+    <div className="container vh-100 d-flex align-items-center justify-content-center">
+      <div className="row justify-content-center w-100">
+        <div className="col-12 col-md-6 col-lg-5">
           <h2 className="text-center mb-4">Create New Task</h2>
-          <form onSubmit={handleSubmit} className="p-4 border rounded">
+          <form onSubmit={handleSubmit} className="p-4 border rounded shadow bg-white">
             <div className="mb-3">
               <label className="form-label">Title</label>
               <input
