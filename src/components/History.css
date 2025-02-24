@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 .history-bar {
     height: 20px;
     font-size: 14px;
@@ -26,33 +24,4 @@
       transform: translateX(100%);
     }
   }
-=======
-
-.history-bar {
-    height: 20px;
-    font-size: 14px;
-    overflow: hidden;
-  }
-  
-  .marquee-container {
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-  }
-  
-  .marquee-content {
-    display: inline-block;
-    white-space: nowrap;
-    animation: marquee-scroll 1500s linear infinite;
-  }
-  
-  @keyframes marquee-scroll {
-    from {
-      transform: translateX(-100%);
-    }
-    to {
-      transform: translateX(100%);
-    }
-  }
->>>>>>> b892819 (Initial commit)
   
