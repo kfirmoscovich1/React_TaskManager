@@ -16,31 +16,32 @@ export default function TaskControls({
   };
 
   return (
-    <div className="controls d-flex justify-content-between align-items-center gap-1 flex-grow-1 white-space-nowrap overflow-hidden">
+    <div className="controls d-flex justify-content-between align-items-center gap-1 flex-grow-1 white-space-nowrap overflow-visible">
+      
       <input
         type="text"
         className="d-inline-flex align-items-center border border-secondary rounded p-2 bg-transparent text-secondary"
         style={{ width: "30%" }}
         placeholder="Search..."
-        value={searchQuery}
-        onChange={handleSearch}
+        value={searchQuery} 
+        onChange={handleSearch} 
       />
 
       <div className="d-inline-flex align-items-center border border-secondary rounded p-2 bg-transparent text-secondary">
-        <strong className="text-danger me-3">High</strong>
-        <strong className="text-warning me-3">Medium</strong>
-        <strong className="text-success">Low</strong>
+        <strong className="text-danger me-3">High</strong> 
+        <strong className="text-warning me-3">Medium</strong> 
+        <strong className="text-success">Low</strong> 
       </div>
 
       <Dropdown>
-        <Dropdown.Toggle id="sortDropdown" className="bg-transparent border-secondary p-2 text-secondary">
+        <Dropdown.Toggle id="filterDropdown" container="body" className="bg-transparent border-secondary p-2 text-secondary">
           <img src={imgSort} alt="Sort" style={{ maxHeight: "3vh", marginRight: "1vw", verticalAlign: "middle" }} />
-          {sortType === "date" ? "By Date" : "By Priority"}
+          {sortType === "date" ? "By Date" : "By Priority"} 
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item onClick={() => setSortType("date")}>By Date</Dropdown.Item>
-          <Dropdown.Item onClick={() => setSortType("priority")}>By Priority</Dropdown.Item>
+          <Dropdown.Item onClick={() => setSortType("date")}>By Date</Dropdown.Item> 
+          <Dropdown.Item onClick={() => setSortType("priority")}>By Priority</Dropdown.Item> 
         </Dropdown.Menu>
       </Dropdown>
 
@@ -58,8 +59,8 @@ export default function TaskControls({
 
         <Dropdown.Menu>
           <Dropdown.Item onClick={() => setFilterStatus("all")}>All</Dropdown.Item>
-          <Dropdown.Item onClick={() => setFilterStatus("open")}>Open</Dropdown.Item>
-          <Dropdown.Item onClick={() => setFilterStatus("done")}>Closed</Dropdown.Item>
+          <Dropdown.Item onClick={() => setFilterStatus("open")}>Open</Dropdown.Item> 
+          <Dropdown.Item onClick={() => setFilterStatus("done")}>Closed</Dropdown.Item> 
           <Dropdown.Item onClick={() => setFilterStatus("archived")}>Archived</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>

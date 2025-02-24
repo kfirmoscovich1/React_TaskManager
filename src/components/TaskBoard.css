@@ -8,6 +8,10 @@
   transition: opacity 0.5s ease-out;
 }
 
+.controls-container {
+  overflow: visible;
+}
+
 
 @media (max-width: 400px) {
     .row {
